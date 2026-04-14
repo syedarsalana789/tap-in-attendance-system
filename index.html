@@ -6,233 +6,188 @@
 
 <title>Tap In - Smart Attendance System</title>
 
-<!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Icons -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #0f3d3e, #071f20);
+    background: linear-gradient(135deg,#0f3d3e,#071f20);
     color: white;
 }
 
-/* Hero */
+/* HERO */
 .hero {
-    text-align: center;
-    padding: 60px 20px;
+    text-align:center;
+    padding:80px 20px;
 }
-
 .hero h1 {
-    font-size: 55px;
-    font-weight: 700;
+    font-size:60px;
+    font-weight:700;
+}
+.tag {
+    background:gold;
+    color:black;
+    padding:10px 25px;
+    border-radius:30px;
+    display:inline-block;
 }
 
-.tagline {
-    background: gold;
-    color: black;
-    padding: 10px 25px;
-    border-radius: 30px;
-    margin-top: 10px;
-    display: inline-block;
+/* CARDS */
+.box {
+    background:rgba(255,255,255,0.05);
+    border-radius:15px;
+    padding:25px;
+    margin-bottom:20px;
+    transition:.3s;
+}
+.box:hover {
+    transform:translateY(-5px);
+    background:rgba(255,255,255,0.1);
 }
 
-/* Cards */
-.card-custom {
-    background: rgba(255,255,255,0.05);
-    border-radius: 15px;
-    padding: 20px;
-    transition: 0.3s;
-    height: 100%;
+/* HEADINGS */
+h2 {
+    color:gold;
 }
 
-.card-custom:hover {
-    transform: translateY(-5px);
-    background: rgba(255,255,255,0.1);
+/* DIAGRAM */
+.diagram {
+    text-align:center;
+    margin-top:20px;
+}
+.diagram div {
+    display:inline-block;
+    padding:15px;
+    margin:10px;
+    background:#0a2e2f;
+    border-radius:10px;
+}
+.arrow {
+    font-size:25px;
+    margin:0 10px;
 }
 
-.section {
-    padding: 50px 0;
+/* ROLES */
+.role {
+    text-align:center;
 }
 
-.section h2 {
-    color: gold;
-    margin-bottom: 20px;
-}
-
-.icon {
-    font-size: 30px;
-    color: gold;
-}
-
-/* Footer */
+/* FOOTER */
 footer {
-    background: #061b1c;
-    padding: 20px;
-    text-align: center;
-    margin-top: 40px;
+    text-align:center;
+    padding:20px;
+    background:#061b1c;
+    margin-top:40px;
 }
 </style>
+
 </head>
 
 <body>
 
-<!-- Hero -->
 <div class="hero">
     <h1>TAP IN</h1>
-    <div class="tagline">No More Proxy, Just One Tap</div>
-    <p class="mt-3">Smart Attendance Management System</p>
+    <div class="tag">No More Proxy, Just One Tap</div>
 </div>
 
 <div class="container">
 
-<!-- Introduction -->
-<div class="section">
-    <h2><i class="bi bi-info-circle icon"></i> Introduction</h2>
-    <div class="card-custom">
-        Tap In is a centralized attendance management system for faculty and staff using biometric fingerprint and facial recognition. It records attendance, manages leaves, and tracks working hours efficiently.
-    </div>
+<div class="box">
+<h2><i class="bi bi-info-circle"></i> Introduction</h2>
+<p>
+Centralized attendance system using fingerprint & face recognition.
+Tracks attendance, leaves, and working hours with secure storage.
+</p>
 </div>
 
-<!-- Problem -->
-<div class="section">
-    <h2><i class="bi bi-exclamation-triangle icon"></i> Problem Statement</h2>
-    <div class="card-custom">
-        Manual attendance systems are error-prone and allow proxy attendance. Managing attendance, leaves, and shifts becomes inefficient. This system ensures automation, transparency, and accuracy.
-    </div>
+<div class="box">
+<h2><i class="bi bi-exclamation-triangle"></i> Problem</h2>
+<p>
+Manual systems cause proxy attendance, errors, and inefficient management.
+</p>
 </div>
 
-<!-- Methodology -->
-<div class="section">
-    <h2><i class="bi bi-cpu icon"></i> Methodology</h2>
-    <div class="card-custom">
-        Users mark attendance using fingerprint or face recognition devices. Data is automatically sent to the server and stored in the database. The system processes attendance, detects late arrivals and early departures, and provides dashboards for different roles.
-    </div>
+<div class="box">
+<h2><i class="bi bi-diagram-3"></i> Smart Methodology</h2>
+
+<div class="diagram">
+<div><i class="bi bi-person"></i><br>User</div>
+<span class="arrow">➡️</span>
+<div><i class="bi bi-fingerprint"></i><br>Device</div>
+<span class="arrow">➡️</span>
+<div><i class="bi bi-cpu"></i><br>Server</div>
+<span class="arrow">➡️</span>
+<div><i class="bi bi-database"></i><br>Database</div>
+<span class="arrow">➡️</span>
+<div><i class="bi bi-display"></i><br>Dashboard</div>
 </div>
 
-<!-- Roles -->
-<div class="section">
-    <h2><i class="bi bi-people icon"></i> System Roles</h2>
-    <div class="row g-3">
-
-        <div class="col-md-4">
-            <div class="card-custom">
-                <h5>User Panel</h5>
-                <ul>
-                    <li>View attendance</li>
-                    <li>Apply for leaves</li>
-                    <li>Check late & early records</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card-custom">
-                <h5>Admin Panel</h5>
-                <ul>
-                    <li>Manage all staff</li>
-                    <li>Approve/reject leaves</li>
-                    <li>Manage shifts & holidays</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card-custom">
-                <h5>Department Panel</h5>
-                <ul>
-                    <li>Manage department users</li>
-                    <li>View attendance</li>
-                    <li>Approve leave requests</li>
-                </ul>
-            </div>
-        </div>
-
-    </div>
+<p class="mt-3">
+Attendance is marked via biometric devices. Data flows to server and database,
+where system detects late/early and shows results on dashboards.
+</p>
 </div>
 
-<!-- Features -->
-<div class="section">
-    <h2><i class="bi bi-stars icon"></i> Features</h2>
-    <div class="row g-3 text-center">
+<div class="box">
+<h2><i class="bi bi-people"></i> System Roles</h2>
 
-        <div class="col-md-3 col-6">
-            <div class="card-custom">
-                <i class="bi bi-fingerprint icon"></i>
-                <p>Biometric</p>
-            </div>
-        </div>
+<div class="row">
 
-        <div class="col-md-3 col-6">
-            <div class="card-custom">
-                <i class="bi bi-clock icon"></i>
-                <p>Late/Early</p>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-6">
-            <div class="card-custom">
-                <i class="bi bi-calendar-check icon"></i>
-                <p>Leaves</p>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-6">
-            <div class="card-custom">
-                <i class="bi bi-bar-chart icon"></i>
-                <p>Dashboard</p>
-            </div>
-        </div>
-
-    </div>
+<div class="col-md-4 role">
+<h5>User</h5>
+<p>View attendance, apply leaves, track timing</p>
 </div>
 
-<!-- Scope -->
-<div class="section">
-    <h2><i class="bi bi-globe icon"></i> Scope & Application</h2>
-    <div class="card-custom">
-        Suitable for universities and organizations to manage attendance, leaves, and staff efficiently with real-time tracking.
-    </div>
+<div class="col-md-4 role">
+<h5>Admin</h5>
+<p>Manage staff, shifts, leaves & reports</p>
 </div>
 
-<!-- Supervisor -->
-<div class="section">
-    <h2><i class="bi bi-person-badge icon"></i> Supervisor</h2>
-    <div class="card-custom">
-        Khuda Bukhsh (KB)
-    </div>
+<div class="col-md-4 role">
+<h5>Department</h5>
+<p>Manage department users & approvals</p>
 </div>
 
-<!-- Coordinator -->
-<div class="section">
-    <h2><i class="bi bi-person-workspace icon"></i> FYP Coordinator</h2>
-    <div class="card-custom">
-        Dr. Mazhar Ali Dootio
-    </div>
+</div>
 </div>
 
-<!-- Team -->
-<div class="section text-center">
-    <h2><i class="bi bi-people-fill icon"></i> Team Members</h2>
-    <div class="row">
+<div class="box">
+<h2><i class="bi bi-stars"></i> Features</h2>
+<ul>
+<li>Fingerprint & Face Recognition</li>
+<li>Automatic Late/Early Detection</li>
+<li>Leave Management</li>
+<li>Role-based Dashboards</li>
+<li>Holiday & Shift Management</li>
+</ul>
+</div>
 
-        <div class="col-md-3 col-6">Syed Arsalan Ahmed</div>
-        <div class="col-md-3 col-6">Saqib Hussain</div>
-        <div class="col-md-3 col-6">Sana Muzaffar</div>
-        <div class="col-md-3 col-6">Tehreem Abdul Khaliq</div>
+<div class="box">
+<h2><i class="bi bi-globe"></i> Scope</h2>
+<p>Suitable for universities and organizations for efficient attendance tracking.</p>
+</div>
 
-    </div>
+<div class="box">
+<h2><i class="bi bi-person-badge"></i> Supervisor</h2>
+<p>Khuda Bukhsh (KB)</p>
+</div>
+
+<div class="box">
+<h2><i class="bi bi-person-workspace"></i> Coordinator</h2>
+<p>Dr. Mazhar Ali Dootio</p>
+</div>
+
+<div class="box text-center">
+<h2><i class="bi bi-people-fill"></i> Team</h2>
+<p>Syed Arsalan Ahmed | Saqib Hussain | Sana Muzaffar | Tehreem Abdul Khaliq</p>
 </div>
 
 </div>
 
 <footer>
-    Tap In | Smart Attendance Management System | Final Year Project
+Smart Attendance Management System | Final Year Project
 </footer>
 
 </body>
