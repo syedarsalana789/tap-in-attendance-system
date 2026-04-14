@@ -1,13 +1,28 @@
 # Tap In: No More Proxy, Just One Tap
 
-Tap In is an attendance management system designed for faculty and staff. It uses biometric (thumb) and facial recognition to ensure accurate and secure attendance marking.
+Tap In is a smart attendance management system for faculty and staff. It uses biometric fingerprint and facial recognition to ensure secure and accurate attendance tracking.
 
-Users can log in to view their attendance records, check late arrivals and early departures, apply for leaves, and track their leave balances such as sick and annual leaves.
+## Overview
+The system records in/out timings, stores data on a centralized server, and allows users and admins to monitor attendance, leaves, and timing records.
 
-The system includes an admin panel where administrators can manage all faculty and staff, assign roles (visiting or permanent), define shift timings, manage holidays, and approve or reject leave applications.
+## Problem
+Manual attendance systems are error-prone and allow proxy attendance. Managing shifts, leaves, and records is inefficient.
 
-A department-level dashboard is also available to manage and monitor attendance within specific departments.
+## Solution
+Tap In automates attendance using biometric devices and detects late arrivals and early departures based on shift timings.
 
-Attendance data is automatically pushed from biometric devices to the database. The system detects late arrivals and early departures based on predefined shift timings.
+## Features
+- Biometric Attendance (Thumb & Face)
+- Automatic Late/Early Detection
+- Leave Management System
+- Admin, Department, and User Dashboards
+- Holiday & Shift Management
 
-This project aims to eliminate proxy attendance and provide a reliable and automated attendance solution.
+## Scope
+Suitable for universities and organizations for efficient attendance and staff management.
+
+## Team Members
+- Syed Arsalan Ahmed
+- Saqib Hussain
+- Sana Muzaffar
+- Tehreem Abdul Khaliq
