@@ -1,35 +1,192 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tap In - About Us</title>
+    <title>Tap In - Smart Attendance System</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f3d3e, #092526);
+            color: white;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px;
+            background: #0a2e2f;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 45px;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            background: gold;
+            color: black;
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 25px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+            background: rgba(255,255,255,0.1);
+        }
+
+        h2 {
+            color: gold;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .team {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .member {
+            background: #123;
+            padding: 10px 15px;
+            border-radius: 8px;
+        }
+
+        .btn {
+            background: gold;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #0a2e2f;
+            margin-top: 20px;
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Tap In: No More Proxy, Just One Tap</h1>
+<header>
+    <h1>TAP IN</h1>
+    <div class="tagline">No More Proxy, Just One Tap</div>
+</header>
 
-    <p>
-        Tap In is an attendance management system designed for faculty and staff.
-        It uses biometric (thumb) and facial recognition to ensure secure and accurate attendance.
-    </p>
+<div class="container">
 
-    <h2>What We Do</h2>
-    <p>
-        Users can mark attendance, view records, check late and early timings,
-        and apply for leaves. The system automatically tracks attendance based on shift timings.
-    </p>
+    <div class="card">
+        <h2>Introduction</h2>
+        <p>
+            Tap In is a centralized attendance management system designed for faculty and staff.
+            It uses biometric technologies including fingerprint and facial recognition to ensure
+            secure and accurate attendance tracking. It records in/out timings and manages attendance,
+            leaves, and reports.
+        </p>
+    </div>
 
-    <h2>Admin Features</h2>
-    <p>
-        Admin can manage users, assign roles, control shifts, manage holidays,
-        and approve or reject leave requests.
-    </p>
+    <div class="card">
+        <h2>Problem Statement</h2>
+        <p>
+            Traditional attendance systems are manual and error-prone, leading to proxy attendance
+            and inefficiency. Tap In eliminates these issues by providing automation, transparency,
+            and accuracy.
+        </p>
+    </div>
 
-    <h2>Our Team</h2>
-    <ul>
-        <li>Syed Arsalan Ahmed</li>
-        <li>Collaborator 1</li>
-        <li>Collaborator 2</li>
-    </ul>
+    <div class="card">
+        <h2>Smart Methodology</h2>
+        <p>
+            Users mark attendance via thumb or face recognition. Data is automatically sent to the
+            server and stored in the database. The system detects late arrivals and early departures
+            based on predefined shift timings set by admin.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Key Features</h2>
+        <ul>
+            <li>Biometric Attendance (Fingerprint & Face)</li>
+            <li>Automatic Late & Early Detection</li>
+            <li>Leave Management (Sick & Annual)</li>
+            <li>User Dashboard (View attendance & apply leave)</li>
+            <li>Admin Dashboard (Manage staff, shifts & leaves)</li>
+            <li>Department Dashboard (Manage specific faculty)</li>
+        </ul>
+
+        <button class="btn" onclick="toggleMore()">View More</button>
+
+        <div id="moreFeatures" class="hidden">
+            <ul>
+                <li>Holiday Management (Eid, Labour Day, Breaks)</li>
+                <li>Role-based Access Control</li>
+                <li>Real-time Data Sync from Device</li>
+                <li>Centralized Database (MySQL)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Scope & Application</h2>
+        <p>
+            This system is suitable for universities and organizations. It enables real-time tracking,
+            efficient attendance monitoring, and better staff management through automation.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Team Members</h2>
+        <div class="team">
+            <div class="member">Syed Arsalan Ahmed</div>
+            <div class="member">Saqib Hussain</div>
+            <div class="member">Sana Muzaffar</div>
+            <div class="member">Tehreem Abdul Khaliq</div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>Smart Attendance Management System | Final Year Project</p>
+</footer>
+
+<script>
+    function toggleMore() {
+        var x = document.getElementById("moreFeatures");
+        if (x.style.display === "none" || x.style.display === "") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
 
 </body>
 </html>
