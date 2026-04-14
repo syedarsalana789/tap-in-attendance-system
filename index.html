@@ -5,12 +5,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tap In - Smart Attendance System</title>
+<title>Tap In - Smart Attendance Management System | BBSUL FYP</title>
 
-<meta name="description" content="Smart attendance system using biometric fingerprint and facial recognition.">
+<meta name="description" content="Tap In is a smart attendance management system using biometric fingerprint and facial recognition. It provides automated attendance tracking, leave management, and role-based dashboards.">
 
+<!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- FontAwesome -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<!-- Animate -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+
+<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
@@ -24,7 +32,20 @@ body {
 /* HEADER */
 .header {
     background: linear-gradient(90deg,#061b1c,#0f3d3e);
-    padding: 15px;
+    padding: 15px 10px;
+}
+
+.header-inner {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    text-align:center;
+}
+
+.header img {
+    height:60px;
+    background: white;
 }
 
 /* HERO */
@@ -34,7 +55,27 @@ body {
 }
 
 .hero h1 {
-    font-size:55px;
+    font-size:60px;
+    font-weight:700;
+}
+
+.tagline {
+    background: gold;
+    color: black;
+    padding:10px 25px;
+    border-radius:30px;
+    display:inline-block;
+    margin-top:10px;
+}
+
+/* SECTION */
+.section {
+    padding:50px 0;
+}
+
+.section h2 {
+    color: gold;
+    margin-bottom:20px;
 }
 
 /* CARD */
@@ -50,36 +91,17 @@ body {
     background:rgba(255,255,255,0.1);
 }
 
-/* TEAM */
-.team-card {
-    background:white;
-    color:black;
-    border-radius:15px;
-    padding:20px;
+/* DIAGRAM */
+.diagram {
     text-align:center;
-    transition:0.3s;
 }
 
-.team-card:hover {
-    transform:scale(1.05);
-}
-
-.team-img {
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    object-fit:cover;
-    border:4px solid gold;
-    margin-bottom:10px;
-}
-
-/* SECTION */
-.section {
-    padding:50px 0;
-}
-
-h2 {
-    color:gold;
+.diagram div {
+    display:inline-block;
+    padding:15px;
+    margin:10px;
+    background:#0a2e2f;
+    border-radius:10px;
 }
 
 /* FOOTER */
@@ -87,11 +109,19 @@ footer {
     background:#061b1c;
     padding:20px;
     text-align:center;
+    margin-top:40px;
 }
 
 /* RESPONSIVE */
 @media (max-width:768px) {
-    .hero h1 { font-size:35px; }
+    .header-inner {
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .hero h1 {
+        font-size:40px;
+    }
 }
 
 </style>
@@ -101,20 +131,27 @@ footer {
 <body>
 
 <!-- HEADER -->
-<div class="header text-center">
-    <img src="https://i.ibb.co/vC71c72r/image.png" height="50">
-    <p class="mb-0">
-        Benazir Bhutto Shaheed University Lyari Karachi <br>
-        Department of Computer Science & IT
-    </p>
+<div class="header">
+    <div class="container header-inner">
+
+        <img src="https://i.ibb.co/vC71c72r/image.png" alt="University Logo">
+
+        <div>
+            <h6 style="margin:0;">
+                Benazir Bhutto Shaheed University Lyari Karachi
+            </h6>
+            <small>Department of Computer Science & Information Technology</small>
+        </div>
+
+        <img src="https://i.ibb.co/HLC7w2j7/lgo12-removebg-preview-1.png" alt="Project Logo">
+
+    </div>
 </div>
 
 <!-- HERO -->
-<div class="hero">
+<div class="hero animate__animated animate__fadeInDown">
     <h1>TAP IN</h1>
-    <p style="background:gold;color:black;display:inline-block;padding:8px 20px;border-radius:20px;">
-        No More Proxy, Just One Tap
-    </p>
+    <div class="tagline">No More Proxy, Just One Tap</div>
 </div>
 
 <div class="container">
@@ -122,88 +159,120 @@ footer {
 <!-- INTRO -->
 <div class="section">
 <div class="card-custom">
-<h2>Introduction</h2>
+<h2><i class="fa fa-info-circle"></i> Introduction</h2>
 <p>
-Tap In is a smart attendance management system designed for faculty and staff using biometric fingerprint and facial recognition.
-It ensures secure attendance tracking, automated reporting, and efficient leave management.
+Tap In is a smart attendance management system designed for faculty and staff. It uses biometric technologies including fingerprint and facial recognition to ensure secure and accurate attendance tracking. The system records in/out timings, manages leave applications, and provides real-time reports and analytics.
+</p>
+</div>
+</div>
+
+<!-- PROBLEM -->
+<div class="section">
+<div class="card-custom">
+<h2><i class="fa fa-exclamation-triangle"></i> Problem Statement</h2>
+<p>
+Traditional attendance systems are manual, error-prone, and allow proxy attendance. Managing attendance, shifts, and leave records manually leads to inefficiency, lack of transparency, and time wastage.
+</p>
+</div>
+</div>
+
+<!-- METHODOLOGY -->
+<div class="section">
+<div class="card-custom">
+<h2><i class="fa fa-project-diagram"></i> Methodology</h2>
+
+<div class="diagram">
+<div><i class="fa fa-user"></i><br>User</div> ➜
+<div><i class="fa fa-fingerprint"></i><br>Device</div> ➜
+<div><i class="fa fa-server"></i><br>Server</div> ➜
+<div><i class="fa fa-database"></i><br>Database</div> ➜
+<div><i class="fa fa-desktop"></i><br>Dashboard</div>
+</div>
+
+<p class="mt-3">
+Attendance is marked using biometric devices. Data is transmitted to the server and stored in a centralized database. The system processes attendance records and automatically detects late arrivals and early departures based on predefined shift timings.
 </p>
 </div>
 </div>
 
 <!-- ROLES -->
 <div class="section">
-<h2>System Roles</h2>
+<h2><i class="fa fa-users"></i> System Roles</h2>
+
 <div class="row g-3">
 
 <div class="col-md-4">
 <div class="card-custom">
-<h5>User</h5>
-<p>View attendance, apply leaves, check records</p>
+<h5>User Panel</h5>
+<ul>
+<li>View attendance</li>
+<li>Apply for leaves</li>
+<li>Check late and early status</li>
+</ul>
 </div>
 </div>
 
 <div class="col-md-4">
 <div class="card-custom">
-<h5>Admin</h5>
-<p>Manage users, shifts, leaves, and reports</p>
+<h5>Admin Panel</h5>
+<ul>
+<li>Manage staff and roles</li>
+<li>Manage shifts and holidays</li>
+<li>Approve or reject leave requests</li>
+</ul>
 </div>
 </div>
 
 <div class="col-md-4">
 <div class="card-custom">
-<h5>Department</h5>
-<p>Manage department staff and approvals</p>
+<h5>Department Panel</h5>
+<ul>
+<li>Manage department users</li>
+<li>View attendance records</li>
+<li>Approve leave applications</li>
+</ul>
 </div>
 </div>
 
 </div>
+</div>
+
+<!-- FEATURES -->
+<div class="section">
+<h2><i class="fa fa-star"></i> Key Features</h2>
+<ul>
+<li>Biometric Attendance (Fingerprint & Face Recognition)</li>
+<li>Automatic Late and Early Detection</li>
+<li>Leave Management System</li>
+<li>Role-Based Dashboards</li>
+<li>Holiday and Shift Management</li>
+<li>Real-Time Data Synchronization</li>
+</ul>
+</div>
+
+<!-- SUPERVISOR -->
+<div class="section text-center">
+<h2>Supervisor</h2>
+<p>Khuda Bukhsh (KB)</p>
+
+<h2 class="mt-4">FYP Coordinator</h2>
+<p>Dr. Mazhar Ali Dootio</p>
 </div>
 
 <!-- TEAM -->
-<div class="section">
-<h2 class="text-center">Team Members</h2>
-
-<div class="row g-4">
-
-<div class="col-md-3 col-6">
-<div class="team-card">
-<img src="https://i.ibb.co/placeholder.png" class="team-img">
-<h6>Syed Arsalan Ahmed</h6>
-<p>Backend Developer</p>
-</div>
-</div>
-
-<div class="col-md-3 col-6">
-<div class="team-card">
-<img src="https://i.ibb.co/placeholder.png" class="team-img">
-<h6>Saqib Hussain</h6>
-<p>Frontend Developer</p>
-</div>
-</div>
-
-<div class="col-md-3 col-6">
-<div class="team-card">
-<img src="https://i.ibb.co/placeholder.png" class="team-img">
-<h6>Sana Muzaffar</h6>
-<p>UI/UX Designer</p>
-</div>
-</div>
-
-<div class="col-md-3 col-6">
-<div class="team-card">
-<img src="https://i.ibb.co/placeholder.png" class="team-img">
-<h6>Tehreem Abdul Khaliq</h6>
-<p>Documentation</p>
-</div>
-</div>
-
-</div>
+<div class="section text-center">
+<h2>Team Members</h2>
+<p>
+Syed Arsalan Ahmed | Saqib Hussain | Sana Muzaffar | Tehreem Abdul Khaliq
+</p>
 </div>
 
 </div>
 
+<!-- FOOTER -->
 <footer>
-© 2026 Tap In | BBSUL Karachi
+© 2026 Tap In - Smart Attendance Management System <br>
+Benazir Bhutto Shaheed University Lyari Karachi
 </footer>
 
 </body>
