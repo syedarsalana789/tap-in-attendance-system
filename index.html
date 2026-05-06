@@ -1,889 +1,421 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- SEO -->
-<title>Tap In - Smart Attendance Management System | BBSUL Final Year Project</title>
-
-<meta name="description" content="Tap In is a Smart Attendance Management System using biometric fingerprint and facial recognition for secure attendance tracking, leave management, analytics, and role-based dashboards.">
-
-<meta name="keywords" content="Tap In, Smart Attendance System, Biometric Attendance, Fingerprint Attendance, Face Recognition Attendance, Attendance Management System, BBSUL FYP">
-
-<meta name="author" content="Syed Arsalan Ahmed">
-
-<meta property="og:title" content="Tap In - Smart Attendance Management System">
-<meta property="og:description" content="No More Proxy, Just One Tap">
+<title>Tap In – Smart Biometric Attendance System | BBSUL FYP 2026</title>
+<meta name="description" content="Tap In is a smart biometric attendance management system for Benazir Bhutto Shaheed University Lyari Karachi. Uses fingerprint and facial recognition for secure, accurate attendance tracking, leave management, and role-based dashboards.">
+<meta name="keywords" content="Tap In, biometric attendance, fingerprint, facial recognition, BBSUL, Benazir Bhutto Shaheed University Lyari, FYP 2026, attendance system, Karachi">
+<meta name="author" content="Syed Arsalan Ahmed, Saqib Hussain, Sana Muzaffar, Tehreem Abdul Khaliq">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Tap In – Smart Biometric Attendance System | BBSUL FYP 2026">
+<meta property="og:description" content="No More Proxy, Just One Tap. Smart biometric attendance for BBSUL faculty and staff.">
 <meta property="og:type" content="website">
-
-<meta name="theme-color" content="#0a2324">
-
-<link rel="canonical" href="#">
-
-<!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<!-- Animate -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Tap In","description":"Smart biometric attendance management system","applicationCategory":"BusinessApplication","author":[{"@type":"Person","name":"Syed Arsalan Ahmed"},{"@type":"Person","name":"Saqib Hussain"},{"@type":"Person","name":"Sana Muzaffar"},{"@type":"Person","name":"Tehreem Abdul Khaliq"}],"provider":{"@type":"EducationalOrganization","name":"Benazir Bhutto Shaheed University Lyari Karachi"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-
-:root{
-    --primary:#00d4aa;
-    --secondary:#ffd700;
-    --dark:#071415;
-    --dark2:#0b1f20;
-    --card:rgba(255,255,255,0.06);
-    --border:rgba(255,255,255,0.08);
-    --text:#f3f3f3;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    background:
-    radial-gradient(circle at top left,#103839 0%,transparent 40%),
-    radial-gradient(circle at bottom right,#062021 0%,transparent 35%),
-    linear-gradient(135deg,#051213,#081f20,#041314);
-    color:var(--text);
-    overflow-x:hidden;
-}
-
-/* SCROLLBAR */
-::-webkit-scrollbar{
-    width:10px;
-}
-
-::-webkit-scrollbar-track{
-    background:#071415;
-}
-
-::-webkit-scrollbar-thumb{
-    background:var(--primary);
-    border-radius:20px;
-}
+:root{--deep:#040d0e;--mid:#071516;--card:#0c1f20;--card2:#102425;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);--gold:#f0c040;--gold2:#c9971e;--teal:#22d3b0;--teal2:#0fa88b;--red:#f87171;--text:#dff0f0;--muted:#6b9091;--muted2:#3e5e5f;--r:14px;--t:0.3s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--deep);color:var(--text);line-height:1.7;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;z-index:0}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(16px,5vw,48px);position:relative;z-index:1}
 
 /* HEADER */
-.topbar{
-    background:rgba(0,0,0,0.35);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(255,255,255,0.08);
-    position:sticky;
-    top:0;
-    z-index:999;
-}
-
-.topbar-inner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-    padding:15px 0;
-}
-
-.logo{
-    width:70px;
-    height:70px;
-    object-fit:contain;
-    background:white;
-    border-radius:12px;
-    padding:5px;
-}
-
-.university{
-    text-align:center;
-}
-
-.university h6{
-    margin:0;
-    font-weight:700;
-    font-size:18px;
-}
-
-.university p{
-    margin:0;
-    color:#c8c8c8;
-    font-size:14px;
-}
+header{background:linear-gradient(90deg,var(--mid),#091a1b);border-bottom:1px solid var(--border2);padding:12px 0;position:sticky;top:0;z-index:200;backdrop-filter:blur(12px)}
+.hdr{display:grid;grid-template-columns:64px 1fr 64px;align-items:center;gap:14px}
+.hdr-logo{width:54px;height:54px;object-fit:contain;background:#fff;border-radius:10px;padding:3px;display:block}
+.hdr-logo[src*="lgo12"]{background:transparent;padding:0}
+.hdr-center{text-align:center}
+.hdr-center h1{font-family:'Outfit',sans-serif;font-size:clamp(11px,1.8vw,15px);font-weight:600;color:var(--text);line-height:1.4}
+.hdr-center p{font-size:clamp(9px,1.3vw,12px);color:var(--muted);margin-top:2px}
 
 /* HERO */
-.hero{
-    min-height:90vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-}
+.hero{min-height:88vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 100px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:800px;height:500px;background:radial-gradient(ellipse at center,rgba(34,211,176,0.07) 0%,transparent 65%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-60px;left:30%;width:500px;height:400px;background:radial-gradient(ellipse,rgba(240,192,64,0.05) 0%,transparent 65%);pointer-events:none}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);border:1px solid rgba(34,211,176,0.25);background:rgba(34,211,176,0.05);padding:7px 18px;border-radius:40px;margin-bottom:30px;animation:up .9s ease both}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(72px,16vw,160px);font-weight:800;line-height:.88;letter-spacing:-5px;color:var(--text);animation:up .9s .1s ease both}
+.hero-title em{font-style:normal;color:var(--gold)}
+.hero-sub{font-size:clamp(15px,2.2vw,20px);color:var(--muted);font-weight:400;margin-top:22px;animation:up .9s .2s ease both}
+.hero-badge{margin-top:22px;display:inline-block;background:var(--gold);color:#1c0d00;font-weight:700;font-size:clamp(13px,1.6vw,15px);padding:11px 32px;border-radius:40px;letter-spacing:.4px;animation:up .9s .3s ease both;box-shadow:0 0 40px rgba(240,192,64,0.15)}
+.stats-row{display:flex;flex-wrap:wrap;justify-content:center;gap:1px;margin-top:56px;border:1px solid var(--border2);border-radius:var(--r);overflow:hidden;background:var(--border);width:100%;max-width:640px;animation:up .9s .4s ease both}
+.stat{background:var(--card);flex:1 1 120px;padding:22px 16px;text-align:center}
+.stat .n{font-family:'Syne',sans-serif;font-size:clamp(28px,5vw,42px);font-weight:800;color:var(--gold);line-height:1}
+.stat .l{font-size:11px;color:var(--muted);margin-top:5px;font-weight:500;letter-spacing:.5px}
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted2);display:flex;flex-direction:column;align-items:center;gap:7px;animation:bounce 2.2s infinite}
+.scroll-hint svg{width:16px;height:16px}
 
-.hero::before{
-    content:'';
-    position:absolute;
-    width:500px;
-    height:500px;
-    background:rgba(0,212,170,0.12);
-    border-radius:50%;
-    filter:blur(120px);
-    top:-150px;
-    left:-150px;
-}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(9px)}}
 
-.hero::after{
-    content:'';
-    position:absolute;
-    width:450px;
-    height:450px;
-    background:rgba(255,215,0,0.08);
-    border-radius:50%;
-    filter:blur(120px);
-    bottom:-180px;
-    right:-100px;
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
-}
-
-.hero h1{
-    font-size:110px;
-    font-weight:800;
-    letter-spacing:5px;
-    line-height:1;
-    margin-bottom:20px;
-    background:linear-gradient(to right,#ffffff,#00d4aa);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-.hero p{
-    font-size:20px;
-    color:#d8d8d8;
-    max-width:750px;
-    margin:auto;
-    line-height:1.8;
-}
-
-.tagline{
-    display:inline-block;
-    margin-top:25px;
-    background:linear-gradient(90deg,var(--secondary),#ffb300);
-    color:black;
-    padding:14px 35px;
-    border-radius:50px;
-    font-weight:700;
-    box-shadow:0 10px 30px rgba(255,215,0,0.3);
-}
-
-.hero-btns{
-    margin-top:40px;
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.btn-custom{
-    padding:14px 30px;
-    border-radius:50px;
-    text-decoration:none;
-    font-weight:600;
-    transition:0.4s;
-}
-
-.btn-primary-custom{
-    background:var(--primary);
-    color:white;
-}
-
-.btn-primary-custom:hover{
-    background:white;
-    color:black;
-}
-
-.btn-outline-custom{
-    border:1px solid rgba(255,255,255,0.2);
-    color:white;
-}
-
-.btn-outline-custom:hover{
-    background:white;
-    color:black;
-}
-
-/* SECTION */
-.section{
-    padding:90px 0;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:60px;
-}
-
-.section-title h2{
-    font-size:48px;
-    font-weight:800;
-    margin-bottom:15px;
-}
-
-.section-title p{
-    max-width:700px;
-    margin:auto;
-    color:#c9c9c9;
-}
+/* SECTIONS */
+.section{padding:clamp(50px,8vh,90px) 0;border-top:1px solid var(--border)}
+.sec-tag{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.sec-tag::after{content:'';width:32px;height:1px;background:var(--teal);opacity:.4}
+.sec-h{font-family:'Syne',sans-serif;font-size:clamp(26px,4.5vw,42px);font-weight:800;color:var(--gold);margin-bottom:28px;line-height:1.1}
 
 /* CARDS */
-.glass-card{
-    background:var(--card);
-    border:1px solid var(--border);
-    backdrop-filter:blur(12px);
-    border-radius:24px;
-    padding:35px;
-    height:100%;
-    transition:0.4s;
-    position:relative;
-    overflow:hidden;
-}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:clamp(20px,4vw,32px);transition:transform var(--t),border-color var(--t),background var(--t)}
+.card:hover{transform:translateY(-6px);border-color:rgba(240,192,64,0.2);background:var(--card2)}
+.ibox{width:50px;height:50px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;border:1px solid}
+.ibox.gold{background:rgba(240,192,64,0.08);border-color:rgba(240,192,64,0.2)}
+.ibox.teal{background:rgba(34,211,176,0.08);border-color:rgba(34,211,176,0.2)}
+.ibox.red{background:rgba(248,113,113,0.08);border-color:rgba(248,113,113,0.2)}
+.ibox svg{width:24px;height:24px}
+.card h3{font-family:'Syne',sans-serif;font-size:clamp(16px,2.2vw,20px);font-weight:700;color:var(--text);margin-bottom:14px}
+.card>p{font-size:clamp(13px,1.8vw,15px);color:var(--muted);line-height:1.8}
+.card ul{list-style:none}
+.card ul li{font-size:clamp(13px,1.7vw,14px);color:var(--muted);padding:9px 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
+.card ul li:last-child{border-bottom:none}
+.card ul li::before{content:'→';color:var(--teal);font-weight:700;flex-shrink:0;font-size:13px;margin-top:1px}
 
-.glass-card::before{
-    content:'';
-    position:absolute;
-    width:150px;
-    height:150px;
-    background:rgba(255,255,255,0.04);
-    border-radius:50%;
-    top:-60px;
-    right:-60px;
-}
-
-.glass-card:hover{
-    transform:translateY(-10px);
-    border-color:rgba(0,212,170,0.5);
-    box-shadow:0 20px 40px rgba(0,0,0,0.3);
-}
-
-.glass-card i{
-    color:var(--secondary);
-    font-size:38px;
-    margin-bottom:20px;
-}
-
-.glass-card h3{
-    font-size:28px;
-    margin-bottom:15px;
-    font-weight:700;
-}
-
-.glass-card p{
-    color:#d6d6d6;
-    line-height:1.8;
-}
+/* GRIDS */
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
 
 /* FLOW */
-.flow{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:18px;
-    margin-top:40px;
-}
-
-.flow-box{
-    width:160px;
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.08);
-    padding:25px 15px;
-    border-radius:20px;
-    text-align:center;
-    transition:0.4s;
-}
-
-.flow-box:hover{
-    transform:scale(1.05);
-    background:rgba(0,212,170,0.12);
-}
-
-.flow-box i{
-    font-size:35px;
-    margin-bottom:12px;
-    color:var(--secondary);
-}
-
-.flow-arrow{
-    font-size:25px;
-    color:var(--primary);
-}
+.flow{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;margin:36px 0 28px}
+.fstep{display:flex;flex-direction:column;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px;min-width:88px;transition:border-color var(--t),transform var(--t)}
+.fstep:hover{border-color:rgba(34,211,176,0.35);transform:translateY(-5px)}
+.ficon{width:48px;height:48px;border-radius:50%;background:rgba(34,211,176,0.07);border:1px solid rgba(34,211,176,0.2);display:flex;align-items:center;justify-content:center}
+.ficon svg{width:22px;height:22px}
+.flabel{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.farr{color:var(--border2);font-size:20px;flex-shrink:0;font-weight:300}
 
 /* FEATURES */
-.feature-list{
-    list-style:none;
-    padding:0;
-}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.feat{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px 18px;display:flex;gap:14px;align-items:flex-start;transition:border-color var(--t),transform var(--t)}
+.feat:hover{border-color:rgba(240,192,64,0.22);transform:translateY(-5px)}
+.fsvg{width:40px;height:40px;flex-shrink:0;border-radius:10px;background:rgba(240,192,64,0.08);border:1px solid rgba(240,192,64,0.18);display:flex;align-items:center;justify-content:center;margin-top:2px}
+.fsvg svg{width:20px;height:20px}
+.feat strong{display:block;font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px}
+.feat span{font-size:12px;color:var(--muted);line-height:1.55}
 
-.feature-list li{
-    position:relative;
-    padding-left:35px;
-    margin-bottom:18px;
-    font-size:17px;
-}
-
-.feature-list li::before{
-    content:"\f058";
-    font-family:"Font Awesome 6 Free";
-    font-weight:900;
-    position:absolute;
-    left:0;
-    top:1px;
-    color:var(--primary);
-}
-
-/* TEAM */
-.team-box{
-    text-align:center;
-    padding:30px;
-    border-radius:24px;
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.08);
-    transition:0.4s;
-}
-
-.team-box:hover{
-    transform:translateY(-8px);
-    background:rgba(255,255,255,0.08);
-}
-
-.team-box h4{
-    margin-top:15px;
-    font-size:22px;
-}
-
-.team-box p{
-    color:#cfcfcf;
-}
-
-/* STATS */
-.stats{
-    margin-top:60px;
-}
-
-.stat-card{
-    text-align:center;
-    background:rgba(255,255,255,0.05);
-    padding:35px;
-    border-radius:20px;
-    border:1px solid rgba(255,255,255,0.08);
-}
-
-.stat-card h3{
-    font-size:45px;
-    color:var(--secondary);
-    font-weight:800;
-}
-
-.stat-card p{
-    margin:0;
-    color:#cccccc;
-}
+/* PEOPLE */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
+.pcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px 20px;text-align:center;transition:border-color var(--t),transform var(--t)}
+.pcard:hover{border-color:rgba(34,211,176,0.28);transform:translateY(-5px)}
+.pcard.vip:hover{border-color:rgba(240,192,64,0.35)}
+.avt{width:62px;height:62px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:20px;font-weight:800;background:linear-gradient(135deg,var(--teal2),#064040);border:2px solid rgba(34,211,176,0.3);color:var(--deep)}
+.pcard.vip .avt{background:linear-gradient(135deg,var(--gold2),#5a3200);border-color:rgba(240,192,64,0.35);color:#fff8e0}
+.pcard .role{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.pcard.vip .role{color:var(--gold)}
+.pcard .name{font-size:14px;font-weight:600;color:var(--text);line-height:1.4}
 
 /* FOOTER */
-footer{
-    background:#030b0b;
-    padding:35px 20px;
-    text-align:center;
-    border-top:1px solid rgba(255,255,255,0.08);
-}
-
-footer p{
-    margin:0;
-    color:#bfbfbf;
-    line-height:1.8;
-}
+footer{background:var(--mid);border-top:1px solid var(--border2);padding:44px 0;text-align:center}
+.ft-title{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:var(--gold);letter-spacing:-1px;margin-bottom:6px}
+.ft-title em{font-style:normal;color:var(--text)}
+footer .ln{width:36px;height:2px;background:var(--teal);border-radius:2px;margin:16px auto}
+footer p{font-size:13px;color:var(--muted);line-height:1.9}
+footer small{color:var(--muted2)}
 
 /* RESPONSIVE */
-@media(max-width:991px){
-
-    .hero h1{
-        font-size:75px;
-    }
-
-    .section-title h2{
-        font-size:38px;
-    }
-
+@media(max-width:640px){
+  .hdr{grid-template-columns:48px 1fr 48px;gap:10px}
+  .hdr-logo{width:44px;height:44px}
+  .hero-title{letter-spacing:-2px}
+  .farr{display:none}
+  .flow{gap:12px}
+  .fstep{min-width:76px;padding:14px 12px}
+  .stats-row{max-width:100%}
+  .stat{flex:1 1 90px;padding:16px 10px}
 }
-
-@media(max-width:768px){
-
-    .topbar-inner{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    .hero{
-        padding:120px 20px 80px;
-        min-height:auto;
-    }
-
-    .hero h1{
-        font-size:55px;
-    }
-
-    .hero p{
-        font-size:16px;
-    }
-
-    .section{
-        padding:70px 0;
-    }
-
-    .section-title h2{
-        font-size:32px;
-    }
-
-    .flow{
-        flex-direction:column;
-    }
-
-    .flow-arrow{
-        transform:rotate(90deg);
-    }
-
-}
-
-@media(max-width:480px){
-
-    .hero h1{
-        font-size:42px;
-    }
-
-    .tagline{
-        padding:12px 20px;
-        font-size:14px;
-    }
-
-    .glass-card{
-        padding:25px;
-    }
-
-}
-
 </style>
-
 </head>
-
 <body>
 
 <!-- HEADER -->
-<header class="topbar">
-    <div class="container">
-        <div class="topbar-inner">
-
-            <img src="https://i.ibb.co/vC71c72r/image.png" alt="BBSUL Logo" class="logo">
-
-            <div class="university">
-                <h6>Benazir Bhutto Shaheed University Lyari Karachi</h6>
-                <p>Department of Computer Science & Information Technology</p>
-            </div>
-
-            <img src="https://i.ibb.co/HLC7w2j7/lgo12-removebg-preview-1.png" alt="Tap In Logo" class="logo">
-
-        </div>
+<header role="banner">
+  <div class="wrap hdr">
+    <img src="https://i.ibb.co/vC71c72r/image.png" alt="BBSUL University Logo" class="hdr-logo" width="54" height="54">
+    <div class="hdr-center">
+      <h1>Benazir Bhutto Shaheed University Lyari Karachi</h1>
+      <p>Department of Computer Science &amp; Information Technology</p>
     </div>
+    <img src="https://i.ibb.co/HLC7w2j7/lgo12-removebg-preview-1.png" alt="Tap In Project Logo" class="hdr-logo" width="54" height="54">
+  </div>
 </header>
 
 <!-- HERO -->
-<section class="hero">
+<main>
+<section class="hero" aria-label="Tap In introduction">
+  <div class="wrap" style="display:flex;flex-direction:column;align-items:center;width:100%">
 
-    <div class="container">
-        <div class="hero-content animate__animated animate__fadeInUp">
+    <span class="pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"/><path d="M14 13.12c0 2.38 0 6.38-1 8.88"/><path d="M17.29 21.02c.12-.6.43-2.3.5-3.02"/><path d="M2 12a10 10 0 0 1 18-6"/><path d="M2 17.5A14.5 14.5 0 0 0 4.5 21"/><path d="M22 12a10 10 0 0 1-1.31 5"/><path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2"/><path d="M17.8 9a6 6 0 0 0-9.5 5.05C8 17 7.6 19 7 21"/></svg>
+      BBSUL Final Year Project 2026
+    </span>
 
-            <h1>TAP IN</h1>
+    <div class="hero-title">TAP <em>IN</em></div>
+    <p class="hero-sub">Smart Biometric Attendance Management System</p>
+    <div class="hero-badge">No More Proxy — Just One Tap</div>
 
-            <div class="tagline">
-                No More Proxy, Just One Tap
-            </div>
-
-            <p class="mt-4">
-                Smart biometric attendance management system powered by fingerprint and facial recognition technology for secure, accurate, and real-time attendance monitoring.
-            </p>
-
-            <div class="hero-btns">
-                <a href="#about" class="btn-custom btn-primary-custom">
-                    Explore Project
-                </a>
-
-                <a href="#features" class="btn-custom btn-outline-custom">
-                    View Features
-                </a>
-            </div>
-
-        </div>
+    <div class="stats-row" role="list">
+      <div class="stat" role="listitem"><div class="n">3</div><div class="l">Role Panels</div></div>
+      <div class="stat" role="listitem"><div class="n">2</div><div class="l">Biometric Modes</div></div>
+      <div class="stat" role="listitem"><div class="n">6+</div><div class="l">Key Features</div></div>
+      <div class="stat" role="listitem"><div class="n">4</div><div class="l">Team Members</div></div>
     </div>
+  </div>
 
+  <div class="scroll-hint" aria-hidden="true">
+    <span>Scroll</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
 </section>
 
-<!-- ABOUT -->
-<section class="section" id="about">
+<!-- INTRO + PROBLEM -->
+<section class="section" aria-labelledby="h-intro">
+  <div class="wrap g2">
 
-    <div class="container">
+    <article class="card">
+      <div class="ibox gold">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#f0c040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="8" stroke-width="3"/><line x1="12" y1="12" x2="12" y2="16"/></svg>
+      </div>
+      <div class="sec-tag">About the System</div>
+      <h2 class="sec-h" id="h-intro">Introduction</h2>
+      <p>Tap In is a smart attendance management system built for university faculty and staff. It uses biometric technologies — fingerprint scanning and facial recognition — to ensure secure, accurate, and tamper-proof attendance tracking. The system records in/out timings, manages leave applications, and delivers real-time analytics through role-based dashboards.</p>
+    </article>
 
-        <div class="section-title">
-            <h2>Project Overview</h2>
-            <p>
-                Tap In transforms traditional attendance systems into a smart automated biometric solution.
-            </p>
-        </div>
+    <article class="card">
+      <div class="ibox red">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17" stroke-width="3"/></svg>
+      </div>
+      <div class="sec-tag" style="color:#f87171">The Challenge</div>
+      <h2 class="sec-h" style="color:#f87171" id="h-problem">Problem Statement</h2>
+      <p>Traditional attendance systems are manual, error-prone, and vulnerable to proxy attendance. Managing records, shifts, and leaves manually creates inefficiency, a lack of transparency, and significant time wastage for both staff and administration.</p>
+    </article>
 
-        <div class="row g-4">
-
-            <div class="col-lg-6">
-                <div class="glass-card h-100">
-
-                    <i class="fa-solid fa-circle-info"></i>
-
-                    <h3>Introduction</h3>
-
-                    <p>
-                        Tap In is a smart attendance management system designed for faculty and staff. It uses biometric technologies including fingerprint and facial recognition to ensure secure and accurate attendance tracking.
-                    </p>
-
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="glass-card h-100">
-
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-
-                    <h3>Problem Statement</h3>
-
-                    <p>
-                        Traditional attendance systems are manual, error-prone, and allow proxy attendance. Managing shifts and leave records manually causes inefficiency, lack of transparency, and time wastage.
-                    </p>
-
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
+  </div>
 </section>
 
 <!-- METHODOLOGY -->
-<section class="section">
+<section class="section" aria-labelledby="h-method">
+  <div class="wrap">
+    <div class="sec-tag">System Architecture</div>
+    <h2 class="sec-h" id="h-method">Methodology</h2>
 
-    <div class="container">
+    <div class="flow" role="list" aria-label="Attendance data flow">
 
-        <div class="section-title">
-            <h2>System Methodology</h2>
-            <p>
-                Smart workflow architecture for attendance tracking and data management.
-            </p>
+      <div class="fstep" role="listitem">
+        <div class="ficon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22d3b0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         </div>
+        <span class="flabel">User</span>
+      </div>
 
-        <div class="glass-card">
+      <span class="farr">›</span>
 
-            <div class="flow">
-
-                <div class="flow-box">
-                    <i class="fa-solid fa-user"></i>
-                    <h6>User</h6>
-                </div>
-
-                <div class="flow-arrow">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-
-                <div class="flow-box">
-                    <i class="fa-solid fa-fingerprint"></i>
-                    <h6>Device</h6>
-                </div>
-
-                <div class="flow-arrow">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-
-                <div class="flow-box">
-                    <i class="fa-solid fa-server"></i>
-                    <h6>Server</h6>
-                </div>
-
-                <div class="flow-arrow">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-
-                <div class="flow-box">
-                    <i class="fa-solid fa-database"></i>
-                    <h6>Database</h6>
-                </div>
-
-                <div class="flow-arrow">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-
-                <div class="flow-box">
-                    <i class="fa-solid fa-chart-line"></i>
-                    <h6>Dashboard</h6>
-                </div>
-
-            </div>
-
-            <p class="mt-5 text-center">
-                Attendance is marked using biometric devices. Data is securely transmitted to the server and stored in a centralized database for real-time analytics and monitoring.
-            </p>
-
+      <div class="fstep" role="listitem">
+        <div class="ficon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22d3b0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"/><path d="M14 13.12c0 2.38 0 6.38-1 8.88"/><path d="M2 12a10 10 0 0 1 18-6"/><path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2"/><path d="M17.8 9a6 6 0 0 0-9.5 5.05C8 17 7.6 19 7 21"/></svg>
         </div>
+        <span class="flabel">Device</span>
+      </div>
+
+      <span class="farr">›</span>
+
+      <div class="fstep" role="listitem">
+        <div class="ficon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22d3b0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6" stroke-width="3"/><line x1="6" y1="18" x2="6.01" y2="18" stroke-width="3"/></svg>
+        </div>
+        <span class="flabel">Server</span>
+      </div>
+
+      <span class="farr">›</span>
+
+      <div class="fstep" role="listitem">
+        <div class="ficon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22d3b0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <span class="flabel">Database</span>
+      </div>
+
+      <span class="farr">›</span>
+
+      <div class="fstep" role="listitem">
+        <div class="ficon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22d3b0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <span class="flabel">Dashboard</span>
+      </div>
 
     </div>
 
+    <p style="color:var(--muted);font-size:clamp(13px,1.8vw,15px);line-height:1.8;max-width:720px">
+      Attendance is marked via biometric devices and transmitted to a centralized server. Records are stored in a database, then processed to auto-detect late arrivals and early departures based on predefined shift timings — displayed live across all role dashboards.
+    </p>
+  </div>
 </section>
 
 <!-- ROLES -->
-<section class="section">
+<section class="section" aria-labelledby="h-roles">
+  <div class="wrap">
+    <div class="sec-tag">Access Control</div>
+    <h2 class="sec-h" id="h-roles">System Roles</h2>
+    <div class="g3">
 
-    <div class="container">
-
-        <div class="section-title">
-            <h2>System Roles</h2>
-            <p>
-                Different panels and access levels for users and administrators.
-            </p>
+      <article class="card">
+        <div class="ibox teal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22d3b0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         </div>
+        <h3>User Panel</h3>
+        <ul>
+          <li>View personal attendance records</li>
+          <li>Apply for leave requests</li>
+          <li>Check late &amp; early departure status</li>
+        </ul>
+      </article>
 
-        <div class="row g-4">
-
-            <div class="col-lg-4 col-md-6">
-                <div class="glass-card">
-
-                    <i class="fa-solid fa-user"></i>
-
-                    <h3>User Panel</h3>
-
-                    <ul class="feature-list">
-                        <li>View Attendance</li>
-                        <li>Apply for Leaves</li>
-                        <li>Check Late & Early Status</li>
-                    </ul>
-
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="glass-card">
-
-                    <i class="fa-solid fa-user-shield"></i>
-
-                    <h3>Admin Panel</h3>
-
-                    <ul class="feature-list">
-                        <li>Manage Staff & Roles</li>
-                        <li>Manage Shifts & Holidays</li>
-                        <li>Approve Leave Requests</li>
-                    </ul>
-
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-12">
-                <div class="glass-card">
-
-                    <i class="fa-solid fa-building"></i>
-
-                    <h3>Department Panel</h3>
-
-                    <ul class="feature-list">
-                        <li>Manage Department Users</li>
-                        <li>View Attendance Records</li>
-                        <li>Approve Leave Applications</li>
-                    </ul>
-
-                </div>
-            </div>
-
+      <article class="card">
+        <div class="ibox gold">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#f0c040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
+        <h3>Admin Panel</h3>
+        <ul>
+          <li>Manage all staff and roles</li>
+          <li>Configure shifts &amp; holidays</li>
+          <li>Approve or reject leave requests</li>
+          <li>View system-wide analytics</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="ibox teal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22d3b0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <h3>Department Panel</h3>
+        <ul>
+          <li>Manage department-level users</li>
+          <li>View department attendance records</li>
+          <li>Approve leave applications</li>
+        </ul>
+      </article>
 
     </div>
-
+  </div>
 </section>
 
 <!-- FEATURES -->
-<section class="section" id="features">
+<section class="section" aria-labelledby="h-feat">
+  <div class="wrap">
+    <div class="sec-tag">Capabilities</div>
+    <h2 class="sec-h" id="h-feat">Key Features</h2>
+    <div class="feat-grid">
 
-    <div class="container">
-
-        <div class="section-title">
-            <h2>Key Features</h2>
-            <p>
-                Advanced smart attendance features built for efficiency and automation.
-            </p>
+      <div class="feat">
+        <div class="fsvg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#f0c040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"/><path d="M14 13.12c0 2.38 0 6.38-1 8.88"/><path d="M2 12a10 10 0 0 1 18-6"/><path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2"/><path d="M17.8 9a6 6 0 0 0-9.5 5.05C8 17 7.6 19 7 21"/></svg>
         </div>
+        <div><strong>Biometric Attendance</strong><span>Fingerprint scanning and facial recognition for tamper-proof identification.</span></div>
+      </div>
 
-        <div class="row g-4">
-
-            <div class="col-lg-6">
-
-                <div class="glass-card h-100">
-
-                    <ul class="feature-list">
-                        <li>Biometric Attendance System</li>
-                        <li>Fingerprint & Face Recognition</li>
-                        <li>Automatic Late Detection</li>
-                        <li>Leave Management System</li>
-                        <li>Role-Based Dashboards</li>
-                        <li>Shift & Holiday Management</li>
-                        <li>Real-Time Synchronization</li>
-                    </ul>
-
-                </div>
-
-            </div>
-
-            <div class="col-lg-6">
-
-                <div class="row g-4">
-
-                    <div class="col-6">
-                        <div class="stat-card">
-                            <h3>99%</h3>
-                            <p>Accuracy</p>
-                        </div>
-                    </div>
-
-                    <div class="col-6">
-                        <div class="stat-card">
-                            <h3>24/7</h3>
-                            <p>Monitoring</p>
-                        </div>
-                    </div>
-
-                    <div class="col-6">
-                        <div class="stat-card">
-                            <h3>3+</h3>
-                            <p>User Roles</p>
-                        </div>
-                    </div>
-
-                    <div class="col-6">
-                        <div class="stat-card">
-                            <h3>Real-Time</h3>
-                            <p>Analytics</p>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
+      <div class="feat">
+        <div class="fsvg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#f0c040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
+        <div><strong>Late &amp; Early Detection</strong><span>Automatic flagging of late arrivals and early departures against shift rules.</span></div>
+      </div>
+
+      <div class="feat">
+        <div class="fsvg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#f0c040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div><strong>Leave Management</strong><span>Streamlined application, review, and approval workflow for all leave types.</span></div>
+      </div>
+
+      <div class="feat">
+        <div class="fsvg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#f0c040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+        </div>
+        <div><strong>Role-Based Dashboards</strong><span>Tailored views and controls for Users, Admins, and Department Heads.</span></div>
+      </div>
+
+      <div class="feat">
+        <div class="fsvg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#f0c040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <div><strong>Shift &amp; Holiday Management</strong><span>Flexible shift scheduling and centralized holiday calendar for the university.</span></div>
+      </div>
+
+      <div class="feat">
+        <div class="fsvg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#f0c040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        </div>
+        <div><strong>Real-Time Sync</strong><span>Live data synchronization between biometric devices, server, and dashboards.</span></div>
+      </div>
 
     </div>
-
+  </div>
 </section>
 
-<!-- SUPERVISOR -->
-<section class="section">
+<!-- TEAM -->
+<section class="section" aria-labelledby="h-team">
+  <div class="wrap">
+    <div class="sec-tag">The People</div>
+    <h2 class="sec-h" id="h-team">Project Team</h2>
+    <div class="pgrid">
 
-    <div class="container">
+      <div class="pcard vip">
+        <div class="avt">KB</div>
+        <div class="role">Supervisor</div>
+        <div class="name">Khuda Bukhsh (KB)</div>
+      </div>
 
-        <div class="section-title">
-            <h2>Project Team</h2>
-            <p>
-                Supervisor, coordinator, and team members behind the project.
-            </p>
-        </div>
+      <div class="pcard vip">
+        <div class="avt">MA</div>
+        <div class="role">FYP Coordinator</div>
+        <div class="name">Dr. Mazhar Ali Dootio</div>
+      </div>
 
-        <div class="row g-4 justify-content-center">
+      <div class="pcard">
+        <div class="avt">SA</div>
+        <div class="role">Team Member</div>
+        <div class="name">Syed Arsalan Ahmed</div>
+      </div>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="team-box">
-                    <i class="fa-solid fa-user-tie fa-3x text-warning"></i>
-                    <h4>Supervisor</h4>
-                    <p>Khuda Bukhsh (KB)</p>
-                </div>
-            </div>
+      <div class="pcard">
+        <div class="avt">SH</div>
+        <div class="role">Team Member</div>
+        <div class="name">Saqib Hussain</div>
+      </div>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="team-box">
-                    <i class="fa-solid fa-graduation-cap fa-3x text-warning"></i>
-                    <h4>FYP Coordinator</h4>
-                    <p>Dr. Mazhar Ali Dootio</p>
-                </div>
-            </div>
+      <div class="pcard">
+        <div class="avt">SM</div>
+        <div class="role">Team Member</div>
+        <div class="name">Sana Muzaffar</div>
+      </div>
 
-        </div>
-
-        <div class="row mt-5 g-4">
-
-            <div class="col-lg-3 col-md-6">
-                <div class="team-box">
-                    <h4>Syed Arsalan Ahmed</h4>
-                    <p>Team Member</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="team-box">
-                    <h4>Saqib Hussain</h4>
-                    <p>Team Member</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="team-box">
-                    <h4>Sana Muzaffar</h4>
-                    <p>Team Member</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="team-box">
-                    <h4>Tehreem Abdul Khaliq</h4>
-                    <p>Team Member</p>
-                </div>
-            </div>
-
-        </div>
+      <div class="pcard">
+        <div class="avt">TA</div>
+        <div class="role">Team Member</div>
+        <div class="name">Tehreem Abdul Khaliq</div>
+      </div>
 
     </div>
-
+  </div>
 </section>
+</main>
 
 <!-- FOOTER -->
-<footer>
-
+<footer role="contentinfo">
+  <div class="wrap">
+    <div class="ft-title">TAP <em>IN</em></div>
+    <p>Smart Biometric Attendance Management System</p>
+    <div class="ln"></div>
     <p>
-        © 2026 Tap In - Smart Attendance Management System
+      Benazir Bhutto Shaheed University Lyari Karachi<br>
+      Department of Computer Science &amp; Information Technology<br>
+      <small>© 2026 Tap In — Final Year Project. All Rights Reserved.</small>
     </p>
-
-    <p>
-        Benazir Bhutto Shaheed University Lyari Karachi
-    </p>
-
+  </div>
 </footer>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
